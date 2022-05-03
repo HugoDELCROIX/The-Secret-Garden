@@ -23,10 +23,10 @@ body {
 }
 
 #net {
-    height: 600px;
+    height: 500px;
     width: auto;
     position: absolute;
-
+    z-index: 10;
 }
 
 .apple {
