@@ -1,5 +1,9 @@
 //MAKE THE MAGIC HAPPEN
 
+// Constantin
+
+alert('Hover the butterfly 30 times to catch it !')
+
 const butterfly = $('#butterfly'), net = $('#net'), screen = $(window);
 let counter = 0, x = 0, y = 0, adaptativeDuration = 1000;
 
@@ -71,7 +75,7 @@ butterfly.mouseenter(function() {
 			butterfly.animate({ top: net.position().top, left: net.position().left }, { duration: 500 }).animate({ rotate: '520deg' }, { duration: 500 });
 		}
 	} else {
-		console.log("butterfly already captured...")
+		console.log("butterfly captured...")
 	}
 })
 
@@ -88,3 +92,5 @@ for (let i = 0; i < 200; i++) {
 		break;
 	}
 }
+
+// 
