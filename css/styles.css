@@ -23,10 +23,10 @@ body {
 }
 
 #net {
-    height: 600px;
+    height: 500px;
     width: auto;
     position: absolute;
-
+    z-index: 10;
 }
 
 .apple {
@@ -50,12 +50,18 @@ body {
 
 }
 
+.night{
+    background-image: url('../images/night.jpg'); 
+}
 
 body {
     margin: 0px;
-    background-image: url("../images/grass.png");
     background-attachment: fixed;
+    background-image: url('../images/day.jpeg'); 
     background-repeat: repeat-x;
     background-position: bottom;
     overflow: hidden;
+    transition: linear all 1s;
+    -webkit-transition-delay: 1s;
+    transition-delay: 1s;
 }

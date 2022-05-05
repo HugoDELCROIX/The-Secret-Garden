@@ -1,5 +1,17 @@
 //MAKE THE MAGIC HAPPEN
 
+$(document).mousemove(function (e) {
+    $("#net").css({
+        left: e.pageX - 1,
+        top: e.pageY - 1
+    });
+});
+
+setInterval(function () {
+    $("body").toggleClass('night');
+}, 5000);
+
+
 // Constantin
 
 alert('Hover the butterfly 30 times to catch it !')
