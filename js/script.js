@@ -72,7 +72,7 @@ setInterval(function () {
 alert('Hover the butterfly 30 times to catch it !')
 
 const butterfly = $('#butterfly'), net = $('#net'), screen = $(window);
-let counter = 0, x = 0, y = 0, adaptativeDuration = 1000;
+let counter = 0, x = 0, y = 0, adaptativeDuration = 1000, victory = false;
 
 // function to generate a random int between 0 and a bound (the parameter)
 function randint( bound ) {
@@ -112,9 +112,7 @@ butterfly.mouseenter(function() {
 		}
 	
 		// we stop the normal motion to make the "reaction move" of the butterfly
-		$(this).clearQueue();
-		$(this).stop();
-		$(this).animate({ left: x, top: y }, { duration : adaptativeDuration });
+		butterfly.clearQueue().stop().animate({ left: x, top: y }, { duration : adaptativeDuration });
 	
 		// here is just some of the variables formatted as an array of objects to look good in the console
 		let stats = [
@@ -139,23 +137,29 @@ butterfly.mouseenter(function() {
 			}
 		} else {
 			// if we reached the 30 hover then the butterfly does a cool animation and dives into the net
-			butterfly.animate({ top: net.position().top, left: net.position().left }, { duration: 500 }).animate({ rotate: '520deg' }, { duration: 500 });
+			alert('you captured the butterfly !!!');
+			console.log('you captured the butterfly !!!');
+			victory = true;
+			butterfly.clearQueue().stop().animate({ top: net.position().top, left: net.position().left }, { duration: 500 }).animate({ rotate: '520deg' }, { duration: 500 });
 		}
-	} else {
-		console.log("butterfly captured...")
 	}
 })
 
 // just a little change in order to be able to hover the butterfly whenever we want and not to have it stuck behind the tree for instance
 butterfly.css('zIndex', '100');
 
-// here is the heart of the execution code : the butterfly "fly" 200 times maximum if nothing happens
-for (let i = 0; i < 200; i++) {
-	moving();
-	
-	if (counter == 30) {
-		alert('you captured the butterfly !!!');
-		console.log('you captured the butterfly !!!');
-		break;
+// make the captured butterfly following the net
+$(document).mousemove(function (e) {
+		if (victory == true) {
+		butterfly.css({
+			left: e.pageX - 1,
+			top: e.pageY - 1
+		});
 	}
+});
+
+
+// here is the heart of the execution code : the butterfly "fly" 1000 times maximum if nothing happens
+for (let i = 0; i < 1000; i++) {
+	moving();
 }
