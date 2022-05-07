@@ -64,7 +64,8 @@ $(document).mousemove(function (e) {
 
 setInterval(function () {
     $("body").toggleClass('night');
-}, 5000);
+	$('#counter').toggleClass('nightCounter')
+}, 10000);
 
 
 // Constantin
@@ -101,6 +102,7 @@ butterfly.mouseenter(function() {
 	// we check that the victory condition is not met
 	if (counter < 30) {
 		counter ++;
+		$('#counter').html('Score : ' + counter); //Hugo
 		generateButterflyPosition();
 		
 		// the butterfly goes faster and faster according to the number of hover
@@ -139,6 +141,7 @@ butterfly.mouseenter(function() {
 			// if we reached the 30 hover then the butterfly does a cool animation and dives into the net
 			alert('you captured the butterfly !!!');
 			console.log('you captured the butterfly !!!');
+			$('#counter').css("border", "solid yellow");
 			victory = true;
 			butterfly.clearQueue().stop().animate({ top: net.position().top, left: net.position().left }, { duration: 500 }).animate({ rotate: '520deg' }, { duration: 500 });
 		}
