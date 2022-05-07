@@ -33,6 +33,10 @@ body {
     z-index: 20;
 }
 
+.swatter{
+  content: url('../images/swatter.png');
+}
+
 .apple {
   height: 50px;
   width: auto;

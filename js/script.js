@@ -66,6 +66,7 @@ setInterval(function () {
     $("body").toggleClass('night');
 	$('#counter').toggleClass('nightCounter')
 	$('#butterfly').toggleClass('mosquito')
+	$('#net').toggleClass('swatter')
 }, 10000);
 
 
