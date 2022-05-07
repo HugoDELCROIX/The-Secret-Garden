@@ -9,6 +9,10 @@ body {
   position: absolute;
 }
 
+.mosquito{
+  content: url('../images/mosquito.png');
+}
+
 #wateringcan {
   width: 200px;
   position: fixed;
@@ -26,7 +30,11 @@ body {
     height: 500px;
     width: auto;
     position: absolute;
-    z-index: 10;
+    z-index: 20;
+}
+
+.swatter{
+  content: url('../images/swatter.png');
 }
 
 .apple {
