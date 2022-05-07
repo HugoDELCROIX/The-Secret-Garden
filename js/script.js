@@ -3,13 +3,11 @@
 // Thomas
 
 // Variables
-let apple1 = $("#apple1");
-let apple2 = $("#apple2");
-let apple3 = $("#apple3");
-let tree = $("#tree");
-let basket = $("#basketfront");
+const apple1 = $("#apple1"), apple2 = $("#apple2"), apple3 = $("#apple3");
+const tree = $("#tree");
+const basket = $("#basketfront");
 
-let apples = [apple1, apple2, apple3];
+const apples = [apple1, apple2, apple3];
 
 // Get the area where the apples can appear
 let treePosition = {
@@ -28,7 +26,7 @@ let basketPosition = {
 
 // Iterate over the list of apples
 apples.forEach((apple) => {
-  // Get the random position of the X axis
+  // Get the random position on the X axis
   let randX =
     Math.floor(
       Math.random() * (treePosition.maxLeft - treePosition.minLeft + 1)
