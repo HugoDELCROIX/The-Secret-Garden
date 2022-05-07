@@ -65,6 +65,7 @@ $(document).mousemove(function (e) {
 setInterval(function () {
     $("body").toggleClass('night');
 	$('#counter').toggleClass('nightCounter')
+	$('#butterfly').toggleClass('mosquito')
 }, 10000);
 
 
