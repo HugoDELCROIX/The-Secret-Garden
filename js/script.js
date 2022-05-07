@@ -163,3 +163,74 @@ $(document).mousemove(function (e) {
 for (let i = 0; i < 1000; i++) {
 	moving();
 }
+
+//Clement
+
+let wateringcan = $("#wateringcan");
+let waterdrop1 = $("#waterdrop1");
+let waterdrop2 = $("#waterdrop2");
+let waterdrop3 = $("#waterdrop3");
+
+stopWaterdrop()
+
+//Get the position of the wateringcan
+function getWateringcanPosition(){
+	let wateringcanPosition ={
+		minTop : wateringcan.position().top + 120,
+		maxTop : wateringcan.position().top + 170,
+		minLeft : wateringcan.position().left + 10,
+		maxLeft : wateringcan.position().left + 30, 
+	}
+	return(wateringcanPosition)
+}
+
+function PositionWaterDrop(wateringcanPosition){
+	let waterdrops = [$("#waterdrop1"),$("#waterdrop2"),$("#waterdrop3")]
+		waterdrops.forEach((waterdrop) => {
+			//Reuse of the Thomas function to position the water drops
+			let randX =
+			Math.floor(
+			  Math.random() * (wateringcanPosition.maxLeft - wateringcanPosition.minLeft + 1)
+			) + wateringcanPosition.minLeft;
+		
+		  let randY =
+			Math.floor(
+			  Math.random() * (wateringcanPosition.maxTop - wateringcanPosition.minTop + 1)
+			) + wateringcanPosition.minTop;
+	
+			waterdrop.css( "display", "block" );
+			waterdrop.css( {"left": randX, "top": randY} );
+			waterdrop.stop(true);
+			waterdrop.animate({ top: waterdrop.position().top +170 }, 2000, function(){PositionWaterDrop(getWateringcanPosition())});
+		})
+	
+}
+
+function stopWaterdrop(){
+	if (wateringcan.css('transform') == 'matrix(0.866025, -0.5, 0.5, 0.866025, 0, 0)') {
+		PositionWaterDrop(getWateringcanPosition())
+	}
+	let waterdrops = [$("#waterdrop1"),$("#waterdrop2"),$("#waterdrop3")]
+	waterdrops.forEach((waterdrop) => {
+		waterdrop.css( "display", "none" );
+		waterdrop.stop(true);
+	})
+}
+
+
+ wateringcan.on( "click", function() {
+	if (wateringcan.css('transform') != 'matrix(0.866025, -0.5, 0.5, 0.866025, 0, 0)') {
+		wateringcan.css({
+			"-webkit-transform": "rotate(-30deg)",
+			"-moz-transform": "rotate(-30deg)",
+		});
+		PositionWaterDrop(getWateringcanPosition())
+	}
+	else{
+		wateringcan.css({
+			"-webkit-transform": "",
+			"-moz-transform": "",
+		});
+		stopWaterdrop();
+	}
+}) 
