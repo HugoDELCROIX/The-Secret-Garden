@@ -3,7 +3,7 @@ body {
   height: 100%;
 }
 
-#butterfly {
+#bug {
   height: 200px;
   width: auto;
   position: absolute;
@@ -30,7 +30,7 @@ body {
     height: 500px;
     width: auto;
     position: absolute;
-    z-index: 20;
+    z-index: 10;
 }
 
 .swatter{
