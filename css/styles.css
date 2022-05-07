@@ -70,3 +70,18 @@ body {
     -webkit-transition-delay: 1s;
     transition-delay: 1s;
 }
+
+#counter{
+  width: fit-content;
+  margin: 0;
+  padding: 10px;
+  font-size: 20px;
+  border: solid #fff;
+  transition: linear all 1s;
+    -webkit-transition-delay: 1s;
+    transition-delay: 1s;
+}
+
+.nightCounter{
+  color: #fff;
+}
