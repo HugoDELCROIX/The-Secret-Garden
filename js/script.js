@@ -148,7 +148,7 @@ butterfly.mouseenter(function() {
 })
 
 // just a little change in order to be able to hover the butterfly whenever we want and not to have it stuck behind the tree for instance
-butterfly.css('zIndex', '100');
+butterfly.css('zIndex', '25');
 
 // make the captured butterfly following the net
 $(document).mousemove(function (e) {
