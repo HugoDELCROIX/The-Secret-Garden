@@ -129,7 +129,6 @@ butterfly.mouseenter(function() {
 		]
 	
 		// enjoy the console by pressing F12 and selecting "console" ;)
-		// if you didn't know this little tips give us a good grade ^^ (even if it's more relevant with native JSON data...)
 		console.table(stats)
 	
 		// if we didn't hover 30 times, so the butterfly continue to fly
