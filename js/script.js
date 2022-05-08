@@ -63,16 +63,16 @@ $(document).mousemove(function (e) {
 setInterval(function () {
     $("body").toggleClass('night');
 	$('#counter').toggleClass('nightCounter')
-	$('#butterfly').toggleClass('mosquito')
+	$('#bug').toggleClass('mosquito')
 	$('#net').toggleClass('swatter')
-}, 10000);
+}, 10000);	
 
 
 // Constantin
 
-alert('Hover the butterfly 30 times to catch it !')
+alert('Hover the bug 30 times to catch it!')
 
-const butterfly = $('#butterfly'), net = $('#net'), screen = $(window);
+const butterfly = $('#bug'), net = $('#net'), screen = $(window);
 let counter = 0, x = 0, y = 0, adaptativeDuration = 1000, victory = false;
 
 // function to generate a random int between 0 and a bound (the parameter)
@@ -102,7 +102,7 @@ butterfly.mouseenter(function() {
 	// we check that the victory condition is not met
 	if (counter < 30) {
 		counter ++;
-		$('#counter').html('Score : ' + counter); //Hugo
+		$('#counter').html('Score : ' + counter + ' / 30'); //Hugo
 		generateButterflyPosition();
 		
 		// the butterfly goes faster and faster according to the number of hover
@@ -139,8 +139,8 @@ butterfly.mouseenter(function() {
 			}
 		} else {
 			// if we reached the 30 hover then the butterfly does a cool animation and dives into the net
-			alert('you captured the butterfly !!!');
-			console.log('you captured the butterfly !!!');
+			alert('You captured it. Well played!');
+			console.log('You captured it. Well played!');
 			$('#counter').css("border", "solid yellow");
 			victory = true;
 			butterfly.clearQueue().stop().animate({ top: net.position().top, left: net.position().left }, { duration: 500 }).animate({ rotate: '520deg' }, { duration: 500 });
